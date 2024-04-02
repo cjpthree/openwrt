@@ -84,6 +84,7 @@ platform_do_upgrade() {
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4|\
 	bananapi,bpi-r4-poe|\
+	cmcc,rax3000m|\
 	jdcloud,re-cp-03|\
 	tplink,tl-xdr4288|\
 	tplink,tl-xdr6086|\
@@ -102,18 +103,6 @@ platform_do_upgrade() {
 			default_do_upgrade "$1"
 			;;
 		ubiblock*)
-			CI_KERNPART="fit"
-			nand_do_upgrade "$1"
-			;;
-		esac
-		;;
-	cmcc,rax3000m)
-		case "$(cmdline_get_var root)" in
-		/dev/mmc*)
-			CI_KERNPART="production"
-			emmc_do_upgrade "$1"
-			;;
-		*)
 			CI_KERNPART="fit"
 			nand_do_upgrade "$1"
 			;;
@@ -216,17 +205,11 @@ platform_check_image() {
 
 platform_copy_config() {
 	case "$(board_name)" in
-	cmcc,rax3000m)
-		case "$(cmdline_get_var root)" in
-		/dev/mmc*)
-			emmc_copy_config
-			;;
-		esac
-		;;
 	bananapi,bpi-r3|\
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4|\
-	bananapi,bpi-r4-poe)
+	bananapi,bpi-r4-poe|\
+	cmcc,rax3000m)
 		case "$(fitblk_get_bootdev)" in
 		mmcblk*)
 			emmc_copy_config

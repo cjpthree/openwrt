@@ -6,6 +6,7 @@ PHYNBR=${DEVPATH##*/phy}
 
 . /lib/functions.sh
 . /lib/functions/system.sh
+. /lib/upgrade/common.sh
 
 board=$(board_name)
 
@@ -55,8 +56,8 @@ case "$board" in
 		[ "$PHYNBR" = "1" ] && macaddr_setbit_la $(macaddr_add $addr 2) > /sys${DEVPATH}/macaddress
 		;;
 	cmcc,rax3000m)
-		case "$(cmdline_get_var root)" in
-		/dev/mmc*)
+		case "$(fitblk_get_bootdev)" in
+		mmcblk*)
 			addr=$(mmc_get_mac_binary factory 0xa)
 			;;
 		*)
