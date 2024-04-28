@@ -1,11 +1,23 @@
-From 536581825219e97fa2ae0c4de35605d2f6311416 Mon Sep 17 00:00:00 2001
 From: Vincent Tremblay <vincent@vtremblay.dev>
-Date: Tue, 27 Dec 2022 09:00:58 -0500
+To: unlisted-recipients:; (no To-header on input)
+Cc: vincent@vtremblay.dev, "Rob Herring" <robh+dt@kernel.org>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
+	"Mark Brown" <broonie@kernel.org>,
+	"Guenter Roeck" <linux@roeck-us.net>,
+	"Stanislav Jakubek" <stano.jakubek@gmail.com>,
+	"Marcello Sylvester Bauer" <sylv@sylv.io>,
+	"Marek Vasut" <marex@denx.de>,
+	"Samuel Holland" <samuel@sholland.org>,
+	"Conor Dooley" <conor.dooley@microchip.com>,
+	"Pali Rohár" <pali@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-spi@vger.kernel.org
 Subject: [PATCH 2/2] spidev: Add Silicon Labs SI3210 device compatible
+Date: Tue, 27 Dec 2022 09:10:08 -0500	[thread overview]
+Message-ID: <20221227141011.111410-2-vincent@vtremblay.dev> (raw)
+In-Reply-To: <20221227141011.111410-1-vincent@vtremblay.dev>
 
 Add compatible string for Silicon Labs SI3210 device.
-
-Note: This patch is adapted from a patch submitted to the for-next branch (v6.3).
 
 Signed-off-by: Vincent Tremblay <vincent@vtremblay.dev>
 ---
